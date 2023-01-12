@@ -39,6 +39,10 @@ export class UltimateFormBuilderComponent {
     this.submit.emit(this.form.value);
   }
 
+  public toggleShowPassword(passwordField: HTMLInputElement) {
+    passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+  }
+
   private buildReactiveFormFromConfig(config = this.config): FormGroup {
     const fb = new FormGroup({});
     if (!config) {
