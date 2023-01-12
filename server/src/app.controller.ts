@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, HttpCode } from '@nestjs/common';
 import { AppService } from './app.service';
 import { RegistrationField } from './app.interfaces';
 
@@ -143,5 +143,10 @@ export class AppController {
         ],
       },
     ];
+  }
+
+  @Post('register')
+  @HttpCode(201)
+  register() {
   }
 }
