@@ -15,6 +15,7 @@ export class FormConfigService {
 
   public getRegistrationFormConfig(): Observable<RegistrationField[]> {
     return this.http.get<IRegistrationField[]>(`${environment.api}/registration-form-config`).pipe(
+      // TODO: should be extracted to custom pipe or reusable service
       map(response => plainToInstance(RegistrationField, response)),
       switchMap(response => {
         return from(
