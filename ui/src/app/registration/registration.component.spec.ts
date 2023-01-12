@@ -1,18 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationComponent } from './registration.component';
 import { FormConfigService, RegistrationService } from '../core/services';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { of } from 'rxjs';
 
+// class MockFormConfigService {
+//   getRegistrationFormConfig = jest.fn();
+// }
+//
+// class MockRegistrationService {
+//   createNewUser = jest.fn();
+// }
 
 describe('RegistrationComponent', () => {
   let component: RegistrationComponent;
   let fixture: ComponentFixture<RegistrationComponent>;
-  let formConfigService: /*Mock*/FormConfigService;
-  let registrationService: /*Mock*/RegistrationService;
+  let formConfigService: FormConfigService;
+  let registrationService: RegistrationService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [RegistrationComponent],
+      imports: [
+        HttpClientTestingModule,
+      ],
       providers: [
+        FormConfigService,
+        RegistrationService,
         // { provide: FormConfigService, useClasS: MockFormConfigService },
         // { provide: RegistrationService, useClasS: MockRegistrationService },
       ],
@@ -21,12 +35,11 @@ describe('RegistrationComponent', () => {
 
     formConfigService = TestBed.inject(FormConfigService) as any;
     registrationService = TestBed.inject(RegistrationService) as any;
-
-    fixture = TestBed.createComponent(RegistrationComponent);
-    component = fixture.componentInstance;
   });
 
   it('should create', () => {
+    fixture = TestBed.createComponent(RegistrationComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component).toBeTruthy();
   });
@@ -34,18 +47,27 @@ describe('RegistrationComponent', () => {
   describe('constructor', () => {
     it('should call for config', () => {
       // Arrange
+      jest.spyOn(formConfigService, 'getRegistrationFormConfig');
 
       // Act
+      fixture = TestBed.createComponent(RegistrationComponent);
+      component = fixture.componentInstance;
       fixture.detectChanges();
 
       // Assert
-      expect(formConfigService.getRegistrationFormConfig).toHaveBeenCalled();
+      expect(formConfigService.getRegistrationFormConfig).toBeCalled();
     });
   });
 
   describe('register', () => {
+    beforeEach(() => {
+      fixture = TestBed.createComponent(RegistrationComponent);
+      component = fixture.componentInstance;
+    });
+
     it('should call ', () => {
       // Arrange
+      jest.spyOn(registrationService, 'createNewUser');
       const obj = {};
 
       // Act
@@ -53,7 +75,7 @@ describe('RegistrationComponent', () => {
       component.register(obj);
 
       // Assert
-      expect(registrationService.createNewUser).toHaveBeenCalledWith(obj);
+      expect(registrationService.createNewUser).toBeCalledWith(obj);
     });
   });
 });
