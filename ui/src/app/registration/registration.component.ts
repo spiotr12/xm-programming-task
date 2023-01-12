@@ -17,4 +17,8 @@ export class RegistrationComponent {
               private fb: FormBuilder) {
     this.config$ = this.formConfigService.getRegistrationFormConfig();
   }
+
+  public register(event: object) {
+    console.log(event);
+  }
 }

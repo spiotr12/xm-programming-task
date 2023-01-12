@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegistrationField } from 'src/app/core/interfaces';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
@@ -12,7 +12,6 @@ export class UltimateFormBuilderComponent {
 
   @Input()
   public set config(value: RegistrationField[] | null) {
-    console.log(value);
     this._config = value;
     this._form = this.buildReactiveFormFromConfig();
   }
@@ -30,7 +29,14 @@ export class UltimateFormBuilderComponent {
   private _form: FormGroup = new FormGroup({});
 
   @Input()
-  public submitBtnLabel: string = 'Submit'
+  public submitBtnLabel: string = 'Submit';
+
+  @Output()
+  public readonly submit = new EventEmitter<object>;
+
+  public parseSubmit() {
+    this.submit.emit(this.form.value);
+  }
 
   private buildReactiveFormFromConfig(config = this.config): FormGroup {
     const fb = new FormGroup({});
@@ -41,21 +47,21 @@ export class UltimateFormBuilderComponent {
     for (const field of config) {
       const control = new FormControl();
 
-      const validators: ValidatorFn[] = [];
+      control.addValidators(this.buildValidators(field));
 
-      if (field.required) {
-        validators.push(Validators.required)
-      }
-
-      control.addValidators(validators)
-
-      fb.addControl(field.name, control)
+      fb.addControl(field.name, control);
     }
 
     return fb;
   }
 
-  public submit() {
+  private buildValidators(field: RegistrationField): ValidatorFn[] {
+    const validators: ValidatorFn[] = [];
 
+    if (field.required) {
+      validators.push(Validators.required);
+    }
+
+    return validators;
   }
 }
