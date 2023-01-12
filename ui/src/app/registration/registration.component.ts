@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormConfigService } from 'src/app/core/services';
+import { FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { RegistrationField } from 'src/app/core/interfaces';
 
 @Component({
   selector: 'xm-registration',
@@ -8,7 +11,10 @@ import { FormConfigService } from 'src/app/core/services';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationComponent {
-  constructor(private readonly formConfigService: FormConfigService) {
-    this.formConfigService.getRegistrationFormConfig().subscribe(value => console.log(value));
+  public readonly config$: Observable<RegistrationField[]>;
+
+  constructor(private readonly formConfigService: FormConfigService,
+              private fb: FormBuilder) {
+    this.config$ = this.formConfigService.getRegistrationFormConfig();
   }
 }

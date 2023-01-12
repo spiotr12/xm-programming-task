@@ -12,7 +12,7 @@ export class AppController {
   }
 
   @Get('registration-form-config')
-  getRegistrationFormConfig(): Array<RegistrationField> {
+  getRegistrationFormConfig(): RegistrationField[] {
     return [
       {
         type: 'text',
