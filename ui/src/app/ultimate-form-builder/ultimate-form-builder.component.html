@@ -1,10 +1,11 @@
-<form [formGroup]="form" >
+<form [formGroup]="form">
   <ng-container *ngFor="let field of config">
     <mat-form-field>
       <mat-label>{{field.label}}</mat-label>
       <input matInput [formControlName]="field.name" [type]="field.type | inputType">
+      <mat-error>{{form.get(field.name)?.errors?.customError?.message}}</mat-error>
     </mat-form-field>
   </ng-container>
 
-  <button mat-flat-button type="button" color="accent" (click)="parseSubmit()">{{submitBtnLabel}}</button>
+  <button mat-flat-button type="button" color="accent" [disabled]="form.invalid" (click)="parseSubmit()">{{submitBtnLabel}}</button>
 </form>

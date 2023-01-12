@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { RegistrationField } from 'src/app/core/interfaces';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { ultimateFormBuilderValidator } from './ultimate-form-builder.validator';
 
 @Component({
   selector: 'xm-ultimate-form-builder',
@@ -46,9 +47,7 @@ export class UltimateFormBuilderComponent {
 
     for (const field of config) {
       const control = new FormControl();
-
       control.addValidators(this.buildValidators(field));
-
       fb.addControl(field.name, control);
     }
 
@@ -57,6 +56,10 @@ export class UltimateFormBuilderComponent {
 
   private buildValidators(field: RegistrationField): ValidatorFn[] {
     const validators: ValidatorFn[] = [];
+
+    for (const fieldValidation of field.validations || []) {
+      validators.push(ultimateFormBuilderValidator(fieldValidation));
+    }
 
     if (field.required) {
       validators.push(Validators.required);
