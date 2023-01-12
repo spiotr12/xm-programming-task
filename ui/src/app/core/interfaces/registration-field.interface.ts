@@ -1,11 +1,11 @@
-import { FieldValidation } from './field-validation.interface';
+import { IFieldValidation } from './field-validation.interface';
 
 export type FieldType = 'text' | 'email' | 'phone' | 'password'
 
-export interface RegistrationField {
+export interface IRegistrationField {
   type: FieldType;
   name: string;
   label: string;
   required: boolean;
-  validations?: FieldValidation[];
+  validations?: IFieldValidation[];
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RegistrationField } from '../interfaces';
+import { IRegistrationField, IRegistrationRequest } from '../interfaces';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -11,7 +11,7 @@ export class RegistrationService {
 
   constructor(private readonly http: HttpClient) { }
 
-  public createNewUser(body: any): Observable<RegistrationField[]> {
-    return this.http.post<RegistrationField[]>(`${environment.api}/register`, body);
+  public createNewUser(body: IRegistrationRequest): Observable<IRegistrationField[]> {
+    return this.http.post<IRegistrationField[]>(`${environment.api}/register`, body);
   }
 }

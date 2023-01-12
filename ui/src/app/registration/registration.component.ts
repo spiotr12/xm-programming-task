@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormConfigService, RegistrationService } from '../core/services';
 import { Observable } from 'rxjs';
-import { RegistrationField } from '../core/interfaces';
 import { Router } from '@angular/router';
+import { RegistrationField } from '../core/models';
 
 @Component({
   selector: 'xm-registration',
@@ -20,7 +20,7 @@ export class RegistrationComponent {
   }
 
   public register(event: object) {
-    this.registrationService.createNewUser(event).subscribe({
+    this.registrationService.createNewUser(event as any).subscribe({
       next: () => this.router.navigate(['/welcome']),
       error: err => console.error(err),
     });

@@ -1,7 +1,7 @@
-import { FieldValidation } from 'src/app/core/interfaces';
+import { IFieldValidation } from 'src/app/core/interfaces';
 import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
-export function ultimateFormBuilderValidator(fieldValidation: FieldValidation): ValidatorFn {
+export function ultimateFormBuilderValidator(fieldValidation: IFieldValidation): ValidatorFn {
   return (control: AbstractControl) => {
     let result: ValidationErrors | null = null;
 

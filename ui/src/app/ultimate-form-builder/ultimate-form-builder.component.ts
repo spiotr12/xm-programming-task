@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { RegistrationField } from 'src/app/core/interfaces';
 import { FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { ultimateFormBuilderValidator } from './ultimate-form-builder.validator';
+import { RegistrationField } from '../core/models';
 
 @Component({
   selector: 'xm-ultimate-form-builder',

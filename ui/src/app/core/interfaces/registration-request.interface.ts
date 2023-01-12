@@ -1,3 +1,3 @@
-export interface RegistrationRequest {
+export interface IRegistrationRequest {
   [fieldName: string]: string;
 }
