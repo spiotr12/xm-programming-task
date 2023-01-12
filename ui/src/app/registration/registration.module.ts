@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegistrationRoutingModule } from './registration-routing.module';
-import { RegistrationComponent } from './registration.component';
+import { RegistrationRoutingModule } from 'src/app/registration/registration-routing.module';
+import { RegistrationComponent } from 'src/app/registration/registration.component';
 
 
 @NgModule({
