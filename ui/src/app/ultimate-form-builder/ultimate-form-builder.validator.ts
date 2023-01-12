@@ -1,25 +1,25 @@
-import { IFieldValidation } from 'src/app/core/interfaces';
 import { AbstractControl, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FieldValidation } from '../core/models';
 
-export function ultimateFormBuilderValidator(fieldValidation: IFieldValidation): ValidatorFn {
+export function ultimateFormBuilderValidator(fieldValidation: FieldValidation): ValidatorFn {
+
+  const responseBuilder = (result: ValidationErrors | null) => result
+    ? ({ customError: { ...result, message: fieldValidation.message } })
+    : null;
+
   return (control: AbstractControl) => {
-    let result: ValidationErrors | null = null;
-
     if (fieldValidation.name === 'maxlength') {
-      result = Validators.maxLength(+fieldValidation.value)(control);
+      return responseBuilder(Validators.maxLength(+fieldValidation.value)(control));
     }
 
     if (fieldValidation.name === 'minlength') {
-      result = Validators.minLength(+fieldValidation.value)(control);
+      return responseBuilder(Validators.minLength(+fieldValidation.value)(control));
     }
 
     if (fieldValidation.name === 'regex') {
-      result = Validators.pattern(fieldValidation.value.toString())(control);
+      return responseBuilder(Validators.pattern(fieldValidation.value.toString())(control));
     }
 
-    if (result) {
-      return { customError: { ...result, message: fieldValidation.message } };
-    }
-    return result;
+    return null;
   };
 }
