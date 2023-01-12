@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormConfigService } from 'src/app/core/services';
 
 @Component({
   selector: 'xm-registration',
@@ -7,5 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationComponent {
-
+  constructor(private readonly formConfigService: FormConfigService) {
+    this.formConfigService.getRegistrationFormConfig().subscribe(value => console.log(value));
+  }
 }
