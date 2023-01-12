@@ -1,1 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <ng-container *ngFor="let field of config">
+    <mat-form-field>
+      <mat-label>{{field.label}}</mat-label>
+      <input matInput [formControlName]="field.name" [type]="field.type | inputType">
+    </mat-form-field>
+  </ng-container>
 
+  <button mat-flat-button type="submit" color="accent">{{submitBtnLabel}}</button>
+</form>
