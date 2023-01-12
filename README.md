@@ -7,3 +7,5 @@
 
     cd ui
     npm run start
+
+    npm i -D @angular-builders/jest @types/jest jest jest-jasmine2 jest-preset-angular ts-jest
