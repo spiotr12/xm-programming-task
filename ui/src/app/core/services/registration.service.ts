@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { RegistrationField } from 'src/app/core/interfaces';
-import { environment } from 'src/environments/environment';
+import { RegistrationField } from '../interfaces';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',

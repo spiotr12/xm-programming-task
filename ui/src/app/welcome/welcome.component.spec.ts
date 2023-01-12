@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { WelcomeComponent } from 'src/app/welcome/welcome.component';
+import { WelcomeComponent } from './welcome.component';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -8,9 +7,9 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      declarations: [WelcomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(WelcomeComponent);
     component = fixture.componentInstance;

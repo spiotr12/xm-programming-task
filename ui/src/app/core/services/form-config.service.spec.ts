@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { FormConfigService } from './form-config.service';
 
 describe('FormConfigService', () => {

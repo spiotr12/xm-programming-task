@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { FormConfigService, RegistrationService } from 'src/app/core/services';
+import { FormConfigService, RegistrationService } from '../core/services';
 import { Observable } from 'rxjs';
-import { RegistrationField } from 'src/app/core/interfaces';
+import { RegistrationField } from '../core/interfaces';
 import { Router } from '@angular/router';
 
 @Component({
