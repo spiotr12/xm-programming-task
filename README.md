@@ -12,3 +12,9 @@
 
     cd ui
     npm run build&run
+
+## Docker
+
+    docker build -t xm-server ./server
+    docker build -t xm-ui ./ui
+    docker compose up
