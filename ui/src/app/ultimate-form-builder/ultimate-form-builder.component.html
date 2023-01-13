@@ -15,7 +15,7 @@
   <mat-form-field>
     <mat-label>{{field.label}}</mat-label>
     <input matInput [formControl]="form.get(field.name)" [type]="field.type | inputType">
-    <mat-error>{{form.get(field.name)?.errors?.customError?.message}}</mat-error>
+    <mat-error>{{form.get(field.name)?.errors?.ultimateFormBuilderError?.message}}</mat-error>
   </mat-form-field>
 </ng-template>
 
@@ -26,6 +26,6 @@
     <mat-icon matSuffix (click)="toggleShowPassword(passwordField)">
       {{passwordField.type === 'password' ? 'visibility' : 'visibility_off'}}
     </mat-icon>
-    <mat-error>{{form.get(field.name)?.errors?.customError?.message}}</mat-error>
+    <mat-error>{{form.get(field.name)?.errors?.ultimateFormBuilderError?.message}}</mat-error>
   </mat-form-field>
 </ng-template>

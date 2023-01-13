@@ -4,7 +4,7 @@ import { FieldValidation } from '../core/models';
 export function ultimateFormBuilderValidator(fieldValidation: FieldValidation): ValidatorFn {
 
   const responseBuilder = (result: ValidationErrors | null) => result
-    ? ({ customError: { ...result, message: fieldValidation.message } })
+    ? ({ ultimateFormBuilderError: { ...result, message: fieldValidation.message } })
     : null;
 
   return (control: AbstractControl) => {

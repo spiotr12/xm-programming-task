@@ -62,8 +62,8 @@ describe('ultimateFormBuilderValidator', () => {
 
       // Assert
       expect(result).not.toBeNull();
-      expect(result!['customError']).toBeDefined();
-      expect(result!['customError'].message).toEqual('Must be less than 6 characters.');
+      expect(result!['ultimateFormBuilderError']).toBeDefined();
+      expect(result!['ultimateFormBuilderError'].message).toEqual('Must be less than 6 characters.');
     });
   });
 
@@ -104,8 +104,8 @@ describe('ultimateFormBuilderValidator', () => {
 
       // Assert
       expect(result).not.toBeNull();
-      expect(result!['customError']).toBeDefined();
-      expect(result!['customError'].message).toEqual('Must not be less than 4 characters.');
+      expect(result!['ultimateFormBuilderError']).toBeDefined();
+      expect(result!['ultimateFormBuilderError'].message).toEqual('Must not be less than 4 characters.');
     });
   });
 
@@ -146,8 +146,8 @@ describe('ultimateFormBuilderValidator', () => {
 
       // Assert
       expect(result).not.toBeNull();
-      expect(result!['customError']).toBeDefined();
-      expect(result!['customError'].message).toEqual('Must match only characters.');
+      expect(result!['ultimateFormBuilderError']).toBeDefined();
+      expect(result!['ultimateFormBuilderError'].message).toEqual('Must match only characters.');
     });
   });
 });

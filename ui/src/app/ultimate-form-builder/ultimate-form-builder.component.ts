@@ -45,7 +45,7 @@ export class UltimateFormBuilderComponent {
 
   private buildReactiveFormFromConfig(config = this.config): FormGroup {
     const fb = new FormGroup({});
-    if (!config) {
+    if (!config || config.length === 0) {
       return fb;
     }
 
