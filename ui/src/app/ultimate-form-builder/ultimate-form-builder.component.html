@@ -1,31 +1,15 @@
 <form [formGroup]="form">
   <ng-container *ngFor="let field of config">
     <ng-container [ngSwitch]="field.type">
-      <ng-container *ngSwitchCase="'password'" [ngTemplateOutlet]="passwordField"
-                    [ngTemplateOutletContext]="{field: field, form: form}"></ng-container>
-      <ng-container *ngSwitchDefault [ngTemplateOutlet]="genericField"
-                    [ngTemplateOutletContext]="{field: field, form: form}"></ng-container>
+      <xm-password-field *ngSwitchCase="'password'" [label]="field.label" [formControlName]="field.name" [type]="field.type | inputType"
+                         [required]="field.required"
+                         [errorMessage]="form.get(field.name)?.errors?.ultimateFormBuilderError?.message"></xm-password-field>
+
+      <xm-form-field *ngSwitchDefault [label]="field.label" [formControlName]="field.name" [type]="field.type | inputType"
+                     [required]="field.required"
+                     [errorMessage]="form.get(field.name)?.errors?.ultimateFormBuilderError?.message"></xm-form-field>
     </ng-container>
   </ng-container>
 
   <button mat-flat-button type="button" color="accent" [disabled]="form.invalid" (click)="parseSubmit()">{{submitBtnLabel}}</button>
 </form>
-
-<ng-template #genericField let-field="field" let-form="form">
-  <mat-form-field>
-    <mat-label>{{field.label}}</mat-label>
-    <input matInput [formControl]="form.get(field.name)" [type]="field.type | inputType">
-    <mat-error>{{form.get(field.name)?.errors?.ultimateFormBuilderError?.message}}</mat-error>
-  </mat-form-field>
-</ng-template>
-
-<ng-template #passwordField let-field="field" let-form="form">
-  <mat-form-field>
-    <mat-label>{{field.label}}</mat-label>
-    <input #passwordField matInput [formControl]="form.get(field.name)" type="password">
-    <mat-icon matSuffix (click)="toggleShowPassword(passwordField)">
-      {{passwordField.type === 'password' ? 'visibility' : 'visibility_off'}}
-    </mat-icon>
-    <mat-error>{{form.get(field.name)?.errors?.ultimateFormBuilderError?.message}}</mat-error>
-  </mat-form-field>
-</ng-template>

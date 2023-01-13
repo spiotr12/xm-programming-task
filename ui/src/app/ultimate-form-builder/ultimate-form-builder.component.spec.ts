@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UltimateFormBuilderComponent } from './ultimate-form-builder.component';
-import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { plainToInstance } from 'class-transformer';
 import { RegistrationField } from '../core/models';
 import { IRegistrationField } from '../core/interfaces';
-import { ultimateFormBuilderValidator } from 'src/app/ultimate-form-builder/ultimate-form-builder.validator';
 
 describe('UltimateFormBuilderComponent', () => {
   let component: UltimateFormBuilderComponent;
@@ -162,34 +161,6 @@ describe('UltimateFormBuilderComponent', () => {
 
       // Assert
       expect(component.submit.emit).toHaveBeenCalledWith({});
-    });
-  });
-
-  describe('toggleShowPassword', () => {
-    it('should toggle type value to password', () => {
-      // Arrange
-      const passwordField = {
-        type: 'text',
-      } as any as HTMLInputElement;
-
-      // Act
-      component.toggleShowPassword(passwordField);
-
-      // Assert
-      expect(passwordField.type).toEqual('password');
-    });
-
-    it('should toggle value to text', () => {
-      // Arrange
-      const passwordField = {
-        type: 'password',
-      } as any as HTMLInputElement;
-
-      // Act
-      component.toggleShowPassword(passwordField);
-
-      // Assert
-      expect(passwordField.type).toEqual('text');
     });
   });
 });
