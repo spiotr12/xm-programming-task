@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { FieldType } from 'src/app/core/interfaces';
+import { FieldType } from '../core/interfaces';
 
 @Pipe({
   name: 'inputType',

@@ -4,7 +4,7 @@ import { environment } from '../../../environments/environment';
 import { from, map, Observable, switchMap } from 'rxjs';
 import { IRegistrationField } from '../interfaces';
 import { plainToInstance } from 'class-transformer';
-import { RegistrationField } from 'src/app/core/models';
+import { RegistrationField } from '../models';
 import { validateOrReject } from 'class-validator';
 
 @Injectable({

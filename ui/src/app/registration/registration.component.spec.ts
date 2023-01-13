@@ -3,6 +3,7 @@ import { RegistrationComponent } from './registration.component';
 import { FormConfigService, RegistrationService } from '../core/services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
+import { WelcomeComponent } from 'src/app/welcome/welcome.component';
 
 // class MockFormConfigService {
 //   getRegistrationFormConfig = jest.fn();
@@ -42,6 +43,13 @@ describe('RegistrationComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
     expect(component).toBeTruthy();
+  });
+
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(RegistrationComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('h1')?.textContent).toContain('Registration');
   });
 
   describe('constructor', () => {

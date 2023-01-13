@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UltimateFormBuilderComponent } from './ultimate-form-builder.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('UltimateFormBuilderComponent', () => {
   let component: UltimateFormBuilderComponent;
@@ -7,7 +8,10 @@ describe('UltimateFormBuilderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UltimateFormBuilderComponent ]
+      declarations: [ UltimateFormBuilderComponent ],
+      imports: [
+        ReactiveFormsModule,
+      ]
     })
     .compileComponents();
 
