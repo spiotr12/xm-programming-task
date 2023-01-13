@@ -1,0 +1,9 @@
+{
+  "port": 8000,
+  "files": [
+    "./dist/xm-programming-task/**/*.{html,htm,css,js}"
+  ],
+  "server": {
+    "baseDir": "./dist/xm-programming-task"
+  }
+}
