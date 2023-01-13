@@ -1,5 +1,6 @@
 import 'reflect-metadata';
-import { IsString, IsNumber, IsNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
+
 export class FieldValidation {
 
   @IsString()

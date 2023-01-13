@@ -7,7 +7,7 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WelcomeComponent]
+      declarations: [WelcomeComponent],
     })
       .compileComponents();
 

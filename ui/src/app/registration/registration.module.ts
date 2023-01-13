@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { RegistrationRoutingModule } from 'src/app/registration/registration-routing.module';
-import { RegistrationComponent } from 'src/app/registration/registration.component';
-import { UltimateFormBuilderModule } from 'src/app/ultimate-form-builder';
+import { RegistrationRoutingModule } from './registration-routing.module';
+import { RegistrationComponent } from './registration.component';
+import { UltimateFormBuilderModule } from '../ultimate-form-builder';
 
 
 @NgModule({
   declarations: [
-    RegistrationComponent
+    RegistrationComponent,
   ],
-    imports: [
-        CommonModule,
-        RegistrationRoutingModule,
-        UltimateFormBuilderModule,
-    ],
+  imports: [
+    CommonModule,
+    RegistrationRoutingModule,
+    UltimateFormBuilderModule,
+  ],
 })
-export class RegistrationModule { }
+export class RegistrationModule {}

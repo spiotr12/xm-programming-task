@@ -8,10 +8,10 @@ export class InputTypePipe implements PipeTransform {
 
   transform(value: FieldType, ...args: unknown[]): string {
     if (value === 'phone') {
-      return 'tel'
+      return 'tel';
     }
 
-    return value
+    return value;
   }
 
 }

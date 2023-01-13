@@ -2,8 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RegistrationComponent } from './registration.component';
 import { FormConfigService, RegistrationService } from '../core/services';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { of } from 'rxjs';
-import { WelcomeComponent } from 'src/app/welcome/welcome.component';
 
 // class MockFormConfigService {
 //   getRegistrationFormConfig = jest.fn();

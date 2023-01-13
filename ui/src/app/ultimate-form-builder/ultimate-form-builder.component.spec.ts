@@ -8,12 +8,12 @@ describe('UltimateFormBuilderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UltimateFormBuilderComponent ],
+      declarations: [UltimateFormBuilderComponent],
       imports: [
         ReactiveFormsModule,
-      ]
+      ],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(UltimateFormBuilderComponent);
     component = fixture.componentInstance;
